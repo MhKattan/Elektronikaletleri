@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EntityLayer.Entities.Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Ürünler</h1>
+<!-- /.card-header -->
+<div class="card-body p-0">
+    <a asp-action="Create" asp-controller="Product" class="btn btn-primary">Yeni Ürün Ekle</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ürün Resmi</th>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Açıklama </th>
+                <th scope="col">Marka </th>
+                <th scope="col">Fiyat </th>
+                <th scope="col">Stok </th>
+                <th scope="col">Kategori ID </th>
+                <th scope="col">Firma ID </th>
+                <th scope="col">Düzeltme </th>
+                <th scope="col">Silme </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+            }
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@i.</td>
+                    <td><img src="~/Foto/@item.ProductPicture" height="100px" width="100px" /></td>
+                    
+                    <td>@item.ProductName</td>
+                    <td>@item.ProductDescription</td>
+                    <td>@item.ProductBrand</td>
+                    <td>@item.Price</td>
+                    <td>@item.Stock</td>
+                    <td>@item.CategoryId</td>
+                    <td>@item.CompanyId</td>
+                    <td><a class="btn btn-success" asp-action="Edit" asp-controller="Product" asp-route-Id="@item.ProductId">Düzelt</a></td>
+                    <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Product" asp-route-Id="@item.ProductId">Silme</a></td>
+                </tr>
+
+                i++;
+
+            }
+
+
+        </tbody>
+
+    </table>
+</div>
+<!-- /.card-body -->

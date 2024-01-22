@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Entities.Company
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Comoany Düzelt</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form method="post" action="Create">
+        <div class="card-body">
+            <input type="hidden" asp-for="@Model.CompanyId" />
+            <div class="form-group">
+                <label for="exampleInputEmail1">Company Adı</label>
+                <input type="text" asp-for="@Model.CompanyName" class="form-control" id="exampleInputEmail1" placeholder="Firma Adını Girin">
+            </div>
+
+
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Düzelt</button>
+        </div>
+    </form>
+</div>

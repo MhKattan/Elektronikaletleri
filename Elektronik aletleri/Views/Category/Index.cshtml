@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EntityLayer.Entities.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kategori Listesi</h1>
+<!-- /.card-header -->
+<div class="card-body p-0">
+    <a asp-action="Create" asp-controller="Category" class="btn btn-primary">Yeni Kategory Ekle</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Kategoriler</th>
+
+                <th style="width: 40px">Düzelt</th>
+                <th style="width: 40px">Silme</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i.</td>
+                    <td>@item.CategoryName</td>
+
+                    <td><a class="btn btn-success" asp-action="Edit" asp-controller="Category" asp-route-Id="@item.CategoryId">Düzelt</a></td>
+                    <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Category" asp-route-Id="@item.CategoryId">Silme</a></td>
+                </tr>
+
+                i++;
+
+            }
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+<!-- /.card-body -->
+
+
