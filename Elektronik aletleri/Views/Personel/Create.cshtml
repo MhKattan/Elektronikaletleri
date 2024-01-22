@@ -1,0 +1,54 @@
+﻿@model EntityLayer.Entities.Personel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Personel Kayıt</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form method="post" action="Create" enctype="multipart/form-data">
+        <div class="card-body">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Personel Resmi</label>
+                <input type="file" asp-for="FotoYukle" class="form-control" id="exampleInputEmail1" placeholder=" Resim Girin">
+                <span asp-validation-for="FotoYukle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Personel Adı</label>
+                <input type="text" asp-for="@Model.PersonelName" class="form-control" id="exampleInputEmail1" placeholder="Personel Adını Girin">
+                <span asp-validation-for="@Model.PersonelName" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Personel Soyadı</label>
+                <input type="text" asp-for="@Model.PersonelSurname" class="form-control" id="exampleInputEmail1" placeholder="Personel Soyadı Girin">
+                <span asp-validation-for="@Model.PersonelSurname" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mail</label>
+                <input type="text" asp-for="@Model.PersonelMail" class="form-control" id="exampleInputEmail1" placeholder="Mail Girin">
+                <span asp-validation-for="@Model.PersonelMail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Şifre</label>
+                <input type="text" asp-for="@Model.Password" class="form-control" id="exampleInputEmail1" placeholder="Şifre Girin">
+                <span asp-validation-for="@Model.Password" class="text-danger"></span>
+            </div>
+            
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    </form>
+</div>

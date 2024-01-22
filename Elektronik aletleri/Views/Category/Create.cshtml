@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Entities.Category
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kategory Kayıt</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form method="post" action="Create">
+        <div class="card-body">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Kategori Adı</label>
+                <input type="text" asp-for="@Model.CategoryName" class="form-control" id="exampleInputEmail1" placeholder="Kategory Adını Girin">
+                <span asp-validation-for="@Model.CategoryName" class="text-danger"></span>
+            </div>
+
+
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    </form>
+</div>

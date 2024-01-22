@@ -1,0 +1,67 @@
+﻿@model EntityLayer.Entities.Product
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Ürün Kayıt</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form method="post" action="Create" enctype="multipart/form-data">
+        <div class="card-body">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ürün Resmi</label>
+                <input type="file" asp-for="ResimYukle" class="form-control" id="exampleInputEmail1" placeholder=" Resim Girin">
+                <span asp-validation-for="ResimYukle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ürün Adı</label>
+                <input type="text" asp-for="@Model.ProductName" class="form-control" id="exampleInputEmail1" placeholder="Ürün Adını Girin">
+                <span asp-validation-for="@Model.ProductName" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Açıklama</label>
+                <input type="text" asp-for="@Model.ProductDescription" class="form-control" id="exampleInputEmail1" placeholder="Müşteri Soyadı Girin">
+                <span asp-validation-for="@Model.ProductDescription" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Marka</label>
+                <input type="text" asp-for="@Model.ProductBrand" class="form-control" id="exampleInputEmail1" placeholder="Marka Girin">
+                <span asp-validation-for="@Model.ProductBrand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Fiyat</label>
+                <input type="text" asp-for="@Model.Price" class="form-control" id="exampleInputEmail1" placeholder="Fiyat Girin">
+                <span asp-validation-for="@Model.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Stok</label>
+                <input type="text" asp-for="@Model.Stock" class="form-control" id="exampleInputEmail1" placeholder="Stok Girin">
+                <span asp-validation-for="@Model.Stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Kategory</label><br />
+                <select asp-for="@Model.CategoryId" asp-items="@ViewData["Ctglist"] as IEnumerable<SelectListItem>" class="from-select-lg"></select>
+                <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Firma</label><br />
+                <select asp-for="@Model.CompanyId" asp-items="@ViewData["Comlist"] as IEnumerable<SelectListItem>" class="from-select-lg"></select>
+                <span asp-validation-for="@Model.CompanyId" class="text-danger"></span>
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    </form>
+</div>
