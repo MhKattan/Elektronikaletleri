@@ -61,7 +61,7 @@ namespace Elektronik_aletleri.Controllers
 
                 TempData["Mail"] = appUserRegisterDto.Email;
                 ViewBag.Code= code;
-                return RedirectToAction("Index","ConfirmMail");
+                return RedirectToAction("Index", "ConfirmMailViewModel");
             }
             else
             {
