@@ -15,7 +15,9 @@ namespace EntityLayer.Entities
         public string CustomerName { get; set; } = string.Empty;
         [Required(ErrorMessage = "Boş Bırakamazsınız")]
         public string CustomerSurname { get; set; }= string.Empty;
+        [Required(ErrorMessage = "Boş Bırakamazsınız")]
         public string CustomerEmail { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Boş Bırakamazsınız")]
         public string Password { get; set; } = string.Empty;
         public virtual List<Sale>? Sales { get; set; }
 

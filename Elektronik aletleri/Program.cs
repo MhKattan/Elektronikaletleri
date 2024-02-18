@@ -22,6 +22,11 @@ namespace Elektronik_aletleri
             builder.Services.AddScoped<ISaleRepository, SaleRepository>();
             builder.Services.AddScoped<IPersonelRepository, PersonelRepository>();
             builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.IsEssential = true;
+
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -36,7 +41,7 @@ namespace Elektronik_aletleri
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.MapControllerRoute(

@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Data;
+using EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Elektronik_aletleri.Component
@@ -14,7 +15,7 @@ namespace Elektronik_aletleri.Component
 
         public IViewComponentResult Invoke()
         {
-            var result=_context.Products.ToList();
+            var result = _context.Products.ToList();
             return View(result);
         }
     }
