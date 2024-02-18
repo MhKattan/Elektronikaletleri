@@ -6,9 +6,9 @@
 
 <h1>Mail Onay Formu</h1>
 
-<form >
+<form method="post" asp-action="Index" asp-controller="ConfirmMail" >
     <div class="form-group">
-        <h2>Onay Maili Gönderilen Mail Adresi @ViewBag.Email </h2>
+        <h2>Onay Formundaki Gönderilen Mail Adresi: @ViewBag.Email </h2>
     </div>
     <div class="form-group">
         <label>Mail Adresiniz</label>

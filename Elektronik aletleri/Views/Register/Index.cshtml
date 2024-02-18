@@ -1,7 +1,7 @@
-﻿@model DataAccessLayer.Dto.AppUserRegisterDto
+﻿
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
+    Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Kayıt Ol</h3></div>
                                 <div class="card-body">
-                                    <form method="post" action="Index" >
+                                    <form method="post" asp-action="Index" asp-controller="Register" >
                                         <div class="form-floating mb-3">
                                             <input class="form-control" name="FirstName" id="inputEmail" type="text" placeholder="Adınız Girin" />
                                             <label for="inputEmail">Adınız Girin</label>
@@ -45,6 +45,10 @@
                                         <div class="form-floating mb-3">
                                             <input class="form-control" name="Phone" id="inputEmail" type="tel" placeholder="Telefon Numarınız Giriniz" />
                                             <label for="inputEmail">Telefon Numarınız Girin</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" name="City" id="inputEmail" type="text" placeholder="Şehir Giriniz" />
+                                            <label for="inputEmail">Şehir Girin</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputPassword" type="password" name="Password" placeholder="Şifreniz" />

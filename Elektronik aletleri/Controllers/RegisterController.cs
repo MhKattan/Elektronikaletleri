@@ -37,8 +37,7 @@ namespace Elektronik_aletleri.Controllers
                 UserName = appUserRegisterDto.UserName,
                 City = appUserRegisterDto.City,
                 Email = appUserRegisterDto.Email,
-                ConfirmCode= code,
-                PhoneNumber=appUserRegisterDto.Phone,
+                
 
             };
             var result = await _userManager.CreateAsync(appuser, appUserRegisterDto.Password);
@@ -46,12 +45,12 @@ namespace Elektronik_aletleri.Controllers
             {
                 MimeMessage mimeMessage = new MimeMessage();
                 MailboxAddress mailboxAddressFrom = new MailboxAddress("MK Elektronik", "muh.kattan@gmail.com");
-                MailboxAddress mailboxAddressTo = new MailboxAddress("User", appUserRegisterDto.Email);
+                MailboxAddress mailboxAddressTo = new MailboxAddress("User", appuser.Email);
                 mimeMessage.From.Add(mailboxAddressFrom);
                 mimeMessage.To.Add(mailboxAddressTo) ;
-                var bodybuilder = new BodyBuilder();
-                bodybuilder.HtmlBody = "<h1>Kayıt Olmak için Gönderilen Kodunuz</h1> <p style='color:red'; text-decoration:'underline'>" + code + "</p>";
-                mimeMessage.Body = bodybuilder.ToMessageBody();
+                BodyBuilder bodyBuilder = new BodyBuilder();
+                bodyBuilder.TextBody= "Kydınız Başarlı bi şekilde Gerçekleşti"+code;
+                mimeMessage.Body = bodyBuilder.ToMessageBody();
                 mimeMessage.Subject = "MK Elektronik";
                 SmtpClient client= new SmtpClient();
                 client.Connect("smtp.gmail.com", 587, false);
@@ -60,8 +59,8 @@ namespace Elektronik_aletleri.Controllers
                 client.Disconnect(true);
 
                 TempData["Mail"] = appUserRegisterDto.Email;
-                ViewBag.Code= code;
-                return RedirectToAction("Index", "ConfirmMailViewModel");
+                
+                return RedirectToAction("Index", "ConfirmMail");
             }
             else
             {
