@@ -1,4 +1,5 @@
-﻿@{
+﻿@model EntityLayer.Entities.LoginViewModel
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -23,13 +24,13 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                 <div class="card-body">
-                                    <form method="post" action="Index">
+                                    <form method="post" asp-action="Index" asp-controller="Login">
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="UserName" id="inputEmail" type="text" placeholder="name@example.com" />
+                                            <input class="form-control" asp-for="UserName" id="inputEmail" type="text" placeholder="name@example.com" />
                                             <label for="inputEmail">Kullancı Adını Girin</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password" name="Password" placeholder="Şifreniz" />
+                                            <input class="form-control" id="inputPassword" type="password" asp-for="Password" placeholder="Şifreniz" />
                                             <label for="inputPassword">Password</label>
                                         </div>
                                         

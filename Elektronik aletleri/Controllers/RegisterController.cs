@@ -37,6 +37,7 @@ namespace Elektronik_aletleri.Controllers
                 UserName = appUserRegisterDto.UserName,
                 City = appUserRegisterDto.City,
                 Email = appUserRegisterDto.Email,
+                ConfirmCode = code,
                 
 
             };
